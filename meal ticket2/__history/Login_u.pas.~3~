@@ -1,0 +1,45 @@
+unit Login_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, admindashboard_u, createaccount_u;
+
+type
+  TfrmLogin = class(TForm)
+    lbllogin: TLabel;
+    edtemail: TEdit;
+    lblemail: TLabel;
+    lblpassword: TLabel;
+    Edtpassword: TEdit;
+    btnLogin: TButton;
+    btncreateaccount: TButton;
+    procedure btncreateaccountClick(Sender: TObject);
+    procedure btnLoginClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmLogin: TfrmLogin;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmLogin.btncreateaccountClick(Sender: TObject);
+begin
+  frmcreateaccount.Show;
+  frmlogin.Hide;
+end;
+
+procedure TfrmLogin.btnLoginClick(Sender: TObject);
+begin
+  frmadmindashboard.Show;
+  frmlogin.Hide;
+end;
+
+end.

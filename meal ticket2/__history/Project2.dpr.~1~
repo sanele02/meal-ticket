@@ -1,0 +1,16 @@
+program Project2;
+
+uses
+  Vcl.Forms,
+  main_u in 'main_u.pas' {frmmain},
+  orderlunch_u in 'orderlunch_u.pas' {frmorderlunch};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tfrmmain, frmmain);
+  Application.CreateForm(Tfrmorderlunch, frmorderlunch);
+  Application.Run;
+end.

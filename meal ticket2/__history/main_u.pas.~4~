@@ -1,0 +1,48 @@
+unit main_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.Buttons, Vcl.StdCtrls, orderlunch_u, Login_u ;
+
+type
+  Tfrmmain = class(TForm)
+    pnlnavg: TPanel;
+    Panel2: TPanel;
+    sbtnorderlunch: TSpeedButton;
+    sbtnorderhistory: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    imgfood: TImage;
+    btnorderlunch: TButton;
+    procedure btnorderlunchClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmain: Tfrmmain;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrmmain.btnorderlunchClick(Sender: TObject);
+begin
+frmorderlunch := Tfrmorderlunch.Create(Self);
+      frmorderlunch.Show;
+      frmmain.Hide;
+end;
+
+procedure Tfrmmain.SpeedButton1Click(Sender: TObject);
+begin
+   //frmLogin := Tfrmorderlunch.Create(Self);
+      frmlogin.Show;
+      frmmain.Hide;
+end;
+
+end.

@@ -1,0 +1,106 @@
+unit createaccount_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, admindashboard_u;
+
+type
+  Tfrmcreateaccount = class(TForm)
+    lblcreateaccount: TLabel;
+    lbladminname: TLabel;
+    editadminname: TEdit;
+    edtemail: TEdit;
+    lblemail: TLabel;
+    lblpassword: TLabel;
+    edtpassword: TEdit;
+    btnLogin: TButton;
+    procedure btnLoginClick(Sender: TObject);
+    procedure edtemailChange(Sender: TObject);
+    procedure editadminnameChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcreateaccount: Tfrmcreateaccount;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrmcreateaccount.btnLoginClick(Sender: TObject);
+//login button
+ var
+  TextFile: TextFile;
+  UserInfo: TStringList;
+  Line: string;
+  Email: string;
+  EmailExists: Boolean;
+  begin
+  EmailExists := False;
+  Email := edtemail.Text;
+
+  // Check if the email already exists in the text file
+  UserInfo := TStringList.Create;
+   try
+     AssignFile(TextFile, 'login.txt');
+    Reset(TextFile);
+
+    while not Eof(TextFile) do
+    begin
+      Readln(TextFile, Line);
+      UserInfo.CommaText := Line;
+      if (UserInfo.Count = 3) and (UserInfo[2] = Email) then
+      begin
+        EmailExists := True;
+        Break;
+      end;
+    end;
+   finally
+    CloseFile(TextFile);
+    UserInfo.Free;
+   end;
+   // If the email already exists, show a message
+  if EmailExists then
+    ShowMessage('Email already exists, Please enter a different Email Address.')
+  else
+   begin
+     // If the email is not found, append the new user to the text file
+    AssignFile(TextFile, 'login.txt');
+    Append(TextFile);
+    Writeln(TextFile, edtAdminName.Text + ',' + edtEmail + ',' + edtPassword.Text);
+    CloseFile(TextFile);
+    ShowMessage('Account created successfully.');
+   end;
+  end;
+
+begin
+//must take me to the admin dashboard
+   frmadmindashboard.Show;
+  frmcreateaccount.Hide;
+
+end;
+
+
+procedure Tfrmcreateaccount.editadminnameChange(Sender: TObject);
+begin
+//admin name
+end;
+
+procedure Tfrmcreateaccount.edtemailChange(Sender: TObject);
+//email edit
+Email: string;
+begin
+     Email := edtemail.Text;
+
+  if Pos('@', Email) > 0 then
+    ShowMessage('Valid email address.')
+  else
+    ShowMessage('Invalid email address.');
+end;
+
+end.

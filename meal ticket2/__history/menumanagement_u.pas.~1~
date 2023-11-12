@@ -1,0 +1,44 @@
+unit menumanagement_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, admindashboard_u;
+
+type
+  Tfrmmenumanagment = class(TForm)
+    pnlnavg: TPanel;
+    Panel1: TPanel;
+    sbtndashboard: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    RchEdtsearchmenuoutput: TRichEdit;
+    lblsearchmenuoutput: TLabel;
+    btnsearchmenu: TButton;
+    btndeletemeal: TButton;
+    Button1: TButton;
+    DBGrid1: TDBGrid;
+    procedure sbtndashboardClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmenumanagment: Tfrmmenumanagment;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrmmenumanagment.sbtndashboardClick(Sender: TObject);
+begin
+frmadmindashboard := Tfrmadmindashboard.Create(Self);
+      frmadmindashboard.Show;
+      frmmenumanagement.Hide;
+
+end;
+
+end.

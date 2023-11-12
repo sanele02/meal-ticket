@@ -1,0 +1,39 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 454
+  Width = 820
+  object dbmmealticket1DB: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Sanele\One' +
+      'Drive\Desktop\Keatlgile Mhlanga IT PAT 2023\Phase2\meal ticket2\' +
+      'mealticket1.mdb;Persist Security Info=False'
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 168
+    Top = 288
+  end
+  object tblprocessedorderrecords: TADOTable
+    Left = 128
+    Top = 120
+  end
+  object tblorderrecords: TADOTable
+    Left = 352
+    Top = 128
+  end
+  object tblmealmenu: TADOTable
+    Connection = dbmmealticket1DB
+    Left = 408
+    Top = 272
+  end
+  object dscmealmenu: TDataSource
+    Left = 536
+    Top = 248
+  end
+  object dscorderrecords: TDataSource
+    Left = 448
+    Top = 128
+  end
+  object dscprocessedorderrecords: TDataSource
+    Left = 216
+    Top = 72
+  end
+end

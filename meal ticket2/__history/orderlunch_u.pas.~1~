@@ -1,0 +1,49 @@
+unit orderlunch_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls,
+  Vcl.Samples.Spin, Vcl.ExtCtrls;
+
+type
+  Tfrmorderlunch = class(TForm)
+    Panel1: TPanel;
+    btnback: TButton;
+    lbllunchticket: TLabel;
+    edtemail: TEdit;
+    edtphonenumber: TEdit;
+    Cmbxcomapanyname: TComboBox;
+    Cmbxweekdays: TComboBox;
+    Cmbxmeal: TComboBox;
+    lblQt: TLabel;
+    SpnEdtQt: TSpinEdit;
+    Label1lblnote: TLabel;
+    Memonote: TMemo;
+    lblordernumber: TLabel;
+    RihEdtordernumber: TRichEdit;
+    btnGenerate: TButton;
+    pnltotalamont: TPanel;
+    lblTotalamount: TLabel;
+    RchEdttotalamount: TRichEdit;
+    lblOrderdetails: TLabel;
+    RchEdtorderdetails: TRichEdit;
+    btnsaveorder: TButton;
+    btnPlaceorder: TButton;
+    lblphonenumber: TLabel;
+    lblemail: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmorderlunch: Tfrmorderlunch;
+
+implementation
+
+{$R *.dfm}
+
+end.
